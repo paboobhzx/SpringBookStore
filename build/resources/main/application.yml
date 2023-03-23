@@ -1,0 +1,38 @@
+#docker compose ps - get container name
+#docker exec -it container_name bash
+#psql -U pablobhz
+#\l (list databases - OK)
+#CREATE DATABASE (databasename on application.yml)
+
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5332/springbookstore
+    username: pablobhz
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+      show-sql: true
+  main:
+    web-application-type: servlet
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    username: zorakbug@gmail.com
+    password: ptnutkaqinatuhzv
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    protocol: smtp
+    test-connection: false

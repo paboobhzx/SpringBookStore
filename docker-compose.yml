@@ -1,0 +1,27 @@
+#docker compose ps - get container name
+#docker exec -it container_name bash
+#psql -U pablobhz
+#\l (list databases - OK)
+#CREATE DATABASE (databasename on application.yml)
+
+
+services:
+  db:
+    container_name: springbootbookstore
+    image: postgres
+    environment:
+      POSTGRES_USER: pablobhz
+      POSTGRES_PASSWORD: password
+      PGDATA: /data/postgres
+    volumes:
+      - db:/data/springbookstore
+    ports:
+      - "5332:5432"
+    networks:
+      - db
+    restart: unless-stopped
+networks:
+  db:
+    driver: bridge
+volumes:
+  db:
