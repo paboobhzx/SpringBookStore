@@ -3,6 +3,9 @@ package com.portfolio.springbootbookstore.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Entity //JPA
 @Data
 @Table(name = "users")
@@ -17,7 +20,7 @@ public class User {
     private String passWord;
 
     @Column(name = "creationTime", nullable = false)
-    private String creationTime;
+    private LocalDateTime creationTime;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "role", nullable = false)
